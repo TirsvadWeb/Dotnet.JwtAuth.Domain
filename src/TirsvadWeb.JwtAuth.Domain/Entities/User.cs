@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using TirsvadWeb.JwtAuth.Domain.Validates;
 
 namespace TirsvadWeb.JwtAuth.Domain.Entities;
 
@@ -11,6 +12,7 @@ public class User : IdentityUser
     /// <summary>
     /// Gets or sets the refresh token associated with the user.
     /// </summary>
+    [RefreshTokenBase64Length(32)]
     public string? RefreshToken { get; set; }
 
     /// <summary>
