@@ -1,14 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
     <PropertyGroup>
         <OutputType>Library</OutputType>
         <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
-
     <PropertyGroup>
-        <VersionPrefix>0.1.1</VersionPrefix>
+        <VersionPrefix>0.1.2</VersionPrefix>
         <PackageId>$(AssemblyName)</PackageId>
         <Title>TirsvadWeb JwtAuth Domain</Title>
         <Authors>Jens Tirsvad Nielsen</Authors>
@@ -19,7 +17,8 @@
         <PackageTags>Console</PackageTags>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-        <Description></Description>
+        <Description>
+        </Description>
     </PropertyGroup>
     <PropertyGroup>
         <IncludeSymbols>true</IncludeSymbols>
@@ -31,6 +30,7 @@
         <DebugType>portable</DebugType>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <NugetPath>bin\Release\</NugetPath>
         <DebugType>portable</DebugType>
     </PropertyGroup>
     <ItemGroup>
@@ -63,6 +63,10 @@
         </PropertyGroup>
         <Message Importance="high" Text="Deleting NuGet cache at: $(NuGetCachePath)" />
         <Exec Command="powershell -NoProfile -ExecutionPolicy Bypass -Command &quot;if (Test-Path '$(NuGetCachePath)') { Remove-Item -Recurse -Force '$(NuGetCachePath)' }&quot;" />
+    </Target>
+    <Target Name="DeleteOldNugetPackages" BeforeTargets="Build">
+        <Exec Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'" Command="del /Q &quot;$(NugetPath)\*.snupkg&quot;" />
+        <Exec Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'" Command="del /Q &quot;$(NugetPath)\*.nupkg&quot;" />
     </Target>
     <Target Name="CopyNuGetPackages" AfterTargets="Pack">
         <Exec Command="if exist &quot;$(RelativeNugetPath)&quot; (copy /Y &quot;$(NugetPath)\*.nupkg&quot; &quot;$(RelativeNugetPath)&quot;)" />
