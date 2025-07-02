@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Library</OutputType>
-    <TargetFramework>net9.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
 
     <PropertyGroup>
-        <VersionPrefix>0.1.0</VersionPrefix>
+        <VersionPrefix>0.1.1</VersionPrefix>
         <PackageId>$(AssemblyName)</PackageId>
         <Title>TirsvadWeb JwtAuth Domain</Title>
         <Authors>Jens Tirsvad Nielsen</Authors>
@@ -27,16 +27,17 @@
         <ApplicationIcon>logo.ico</ApplicationIcon>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-      <DebugType>none</DebugType>
+        <NugetPath>bin\Debug\</NugetPath>
+        <DebugType>portable</DebugType>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-      <DebugType>none</DebugType>
+        <DebugType>portable</DebugType>
     </PropertyGroup>
     <ItemGroup>
-      <Content Include="logo.ico" />
+        <Content Include="logo.ico" />
     </ItemGroup>
     <ItemGroup>
-        <None Include="..\..\images\logo\128x128\logo.png">
+        <None Include="..\..\images\logo\logo.png">
             <Pack>True</Pack>
             <PackagePath>\</PackagePath>
         </None>
@@ -49,9 +50,22 @@
             <PackagePath>\</PackagePath>
         </None>
     </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.6" />
-  </ItemGroup>
-
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.6" />
+    </ItemGroup>
+    <PropertyGroup>
+        <RelativeNugetPath>..\..\..\..\..\nuget</RelativeNugetPath>
+    </PropertyGroup>
+    <Target Name="CleanNuGetCache" BeforeTargets="Pack">
+        <PropertyGroup>
+            <UserProfile>$(USERPROFILE)</UserProfile>
+            <NuGetCachePath>$(UserProfile)\.nuget\packages\$(PackageId)</NuGetCachePath>
+        </PropertyGroup>
+        <Message Importance="high" Text="Deleting NuGet cache at: $(NuGetCachePath)" />
+        <Exec Command="powershell -NoProfile -ExecutionPolicy Bypass -Command &quot;if (Test-Path '$(NuGetCachePath)') { Remove-Item -Recurse -Force '$(NuGetCachePath)' }&quot;" />
+    </Target>
+    <Target Name="CopyNuGetPackages" AfterTargets="Pack">
+        <Exec Command="if exist &quot;$(RelativeNugetPath)&quot; (copy /Y &quot;$(NugetPath)\*.nupkg&quot; &quot;$(RelativeNugetPath)&quot;)" />
+        <Exec Command="if exist &quot;$(RelativeNugetPath)&quot; (copy /Y &quot;$(NugetPath)\*.snupkg&quot; &quot;$(RelativeNugetPath)&quot;)" />
+    </Target>
 </Project>
