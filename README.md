@@ -98,7 +98,7 @@ Jens Tirsvad Nielsen - [LinkedIn][linkedin-url]
 [githubIssue-url]: https://github.com/TirsvadWeb/Dotnet.JwtAuth.Domain/issues/
 [repos-size-shield]: https://img.shields.io/github/repo-size/TirsvadWeb/Dotnet.JwtAuth.Domain?style=for-the-badg
 
-[logo]: https://raw.githubusercontent.com/TirsvadWeb/Dotnet.JwtAuth.Domain/main/image/logo/32x32/logo.png
+[logo]: https://raw.githubusercontent.com/TirsvadWeb/Dotnet.JwtAuth.Domain/master/images/logo/32x32/logo.png
 
 <!-- If this is a Nuget package -->
 [nuget-shield]: https://img.shields.io/nuget/dt/TirsvadWeb.JwtAuth.Domain?style=for-the-badge
