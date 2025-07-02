@@ -18,7 +18,7 @@
 )
 
 # set variables
-$IncrementBuildUrl = "https://github.com/TirsvadWeb/PS.IncreaseBuildNumberVSProject/releases/download/1.0.0/IncrementBuild.zip"
+$IncrementBuildUrl = "https://github.com/TirsvadCLI/PS.IncreaseBuildNumberVSProject/releases/download/1.0.0/IncrementBuild.zip"
 $IncrementBuildDestinationPath = "$PSScriptRoot/IncrementBuild.zip"
 $IncrementBuildUnzipPath = "$PSScriptRoot/IncrementBuild"
 $IncrementBuildScriptPath = "$IncrementBuildUnzipPath/IncrementBuild.ps1"
@@ -236,4 +236,4 @@ function UploadToGitHub {
 #$GitHubToken = $env:GitHubToken # Replace with your GitHub token or set it in the environment variable
 #UploadToGitHub -PackagePath $packagePath -GitHubRepoUrl $GitHubRepoUrl -GitHubToken $GitHubToken
 
-Start-Sleep -Seconds 3000
+Start-Sleep -Seconds 5
