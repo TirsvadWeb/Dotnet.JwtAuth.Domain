@@ -14,7 +14,7 @@
         <PackageIcon>logo.png</PackageIcon>
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
         <RepositoryUrl>https://github.com/TirsvadWeb/Dotnet.JwtAuth.Domain</RepositoryUrl>
-        <PackageTags>Console</PackageTags>
+        <PackageTags>Library</PackageTags>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
         <Description>

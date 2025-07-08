@@ -7,7 +7,7 @@ namespace TirsvadWeb.JwtAuth.Domain.Entities;
 /// Represents an application user with JWT authentication support.
 /// Inherits from <see cref="IdentityUser"/> and adds properties for refresh token management.
 /// </summary>
-public class User : IdentityUser
+public class ApplicationUser : IdentityUser
 {
     /// <summary>
     /// Gets or sets the refresh token associated with the user.

@@ -10,12 +10,12 @@ public sealed class TestUserValidation
     public void User_RefreshToken_ValidBase64Length32_ShouldBeValid()
     {
         // Arrange
-        var user = new User
+        var user = new ApplicationUser
         {
             RefreshToken = Convert.ToBase64String(new byte[32])
         };
 
-        var context = new ValidationContext(user) { MemberName = nameof(User.RefreshToken) };
+        var context = new ValidationContext(user) { MemberName = nameof(ApplicationUser.RefreshToken) };
         var results = new System.Collections.Generic.List<ValidationResult>();
 
         // Act
@@ -29,12 +29,12 @@ public sealed class TestUserValidation
     public void User_RefreshToken_InvalidBase64_ShouldBeInvalid()
     {
         // Arrange
-        var user = new User
+        var user = new ApplicationUser
         {
             RefreshToken = "not_base64!"
         };
 
-        var context = new ValidationContext(user) { MemberName = nameof(User.RefreshToken) };
+        var context = new ValidationContext(user) { MemberName = nameof(ApplicationUser.RefreshToken) };
         var results = new System.Collections.Generic.List<ValidationResult>();
 
         // Act
@@ -48,12 +48,12 @@ public sealed class TestUserValidation
     public void User_RefreshToken_Base64WrongLength_ShouldBeInvalid()
     {
         // Arrange
-        var user = new User
+        var user = new ApplicationUser
         {
             RefreshToken = Convert.ToBase64String(new byte[16]) // Only 16 bytes
         };
 
-        var context = new ValidationContext(user) { MemberName = nameof(User.RefreshToken) };
+        var context = new ValidationContext(user) { MemberName = nameof(ApplicationUser.RefreshToken) };
         var results = new System.Collections.Generic.List<ValidationResult>();
 
         // Act
@@ -67,12 +67,12 @@ public sealed class TestUserValidation
     public void User_RefreshToken_Null_ShouldBeValid()
     {
         // Arrange
-        var user = new User
+        var user = new ApplicationUser
         {
             RefreshToken = null
         };
 
-        var context = new ValidationContext(user) { MemberName = nameof(User.RefreshToken) };
+        var context = new ValidationContext(user) { MemberName = nameof(ApplicationUser.RefreshToken) };
         var results = new System.Collections.Generic.List<ValidationResult>();
 
         // Act
