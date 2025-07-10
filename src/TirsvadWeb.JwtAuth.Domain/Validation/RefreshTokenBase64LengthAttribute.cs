@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TirsvadWeb.JwtAuth.Domain.Validates;
+namespace TirsvadWeb.JwtAuth.Domain.Validation;
 
 /// <summary>
 /// Validation attribute to ensure a string property is a valid base64-encoded value
@@ -17,7 +17,7 @@ internal class RefreshTokenBase64LengthAttribute : ValidationAttribute
     public RefreshTokenBase64LengthAttribute(int expectedLength)
     {
         _expectedLength = expectedLength;
-        ErrorMessage = $"RefreshToken must be a base64 string representing exactly {_expectedLength} bytes.";
+        ErrorMessage = string.Format(ErrorMessages.RefreshTokenBase64Length, _expectedLength);
     }
 
     /// <summary>
@@ -30,7 +30,7 @@ internal class RefreshTokenBase64LengthAttribute : ValidationAttribute
     public override bool IsValid(object? value)
     {
         if (value is null)
-            return true; // Allow null, use [Required] if needed
+            return true;
 
         if (value is string s)
         {
