@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using TirsvadWeb.JwtAuth.Domain.Entities;
 
-namespace TestDomain;
+namespace TestEntityValidation;
 
 [TestClass]
 public sealed class TestUserValidation
@@ -16,7 +16,7 @@ public sealed class TestUserValidation
         };
 
         var context = new ValidationContext(user) { MemberName = nameof(ApplicationUser.RefreshToken) };
-        var results = new System.Collections.Generic.List<ValidationResult>();
+        var results = new List<ValidationResult>();
 
         // Act
         var isValid = Validator.TryValidateProperty(user.RefreshToken, context, results);
@@ -35,7 +35,7 @@ public sealed class TestUserValidation
         };
 
         var context = new ValidationContext(user) { MemberName = nameof(ApplicationUser.RefreshToken) };
-        var results = new System.Collections.Generic.List<ValidationResult>();
+        var results = new List<ValidationResult>();
 
         // Act
         var isValid = Validator.TryValidateProperty(user.RefreshToken, context, results);
@@ -54,7 +54,7 @@ public sealed class TestUserValidation
         };
 
         var context = new ValidationContext(user) { MemberName = nameof(ApplicationUser.RefreshToken) };
-        var results = new System.Collections.Generic.List<ValidationResult>();
+        var results = new List<ValidationResult>();
 
         // Act
         var isValid = Validator.TryValidateProperty(user.RefreshToken, context, results);
@@ -73,7 +73,7 @@ public sealed class TestUserValidation
         };
 
         var context = new ValidationContext(user) { MemberName = nameof(ApplicationUser.RefreshToken) };
-        var results = new System.Collections.Generic.List<ValidationResult>();
+        var results = new List<ValidationResult>();
 
         // Act
         var isValid = Validator.TryValidateProperty(user.RefreshToken, context, results);
