@@ -45,14 +45,25 @@ Then, run your package manager's install command to download and install the mod
 git clone git@github.com:TirsvadWeb/Dotnet.JwtAuth.Domain.git
 ```
 
+## 📂 Folder Structure
+```Plaintext
+Dotnet.JwtAuth.Domain/
+├── 📄 docs                                  // Documentation files
+│   └── 📄 doxygen                           // Doxygen output
+├── 🖼️ images                                // Images used in documentation
+├── 📂 src                                   // Source code for the library
+│   └── 📦 TirsvadWeb.JwtAuth.Domain         // Main library folder
+│       ├── 📦 Entities                      // Contains domain entities
+│       └── 📦 Validation                    // Validation used in Models
+└── 📂 tests                                 // Unit tests for the library
+    └── 📦 TestEntityValidation              // Contains unit tests for entity validation
+
+```
+
 ## Contributing
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+See [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## Bug / Issue Reporting  
 If you encounter a bug or have an issue to report, please follow these steps:  

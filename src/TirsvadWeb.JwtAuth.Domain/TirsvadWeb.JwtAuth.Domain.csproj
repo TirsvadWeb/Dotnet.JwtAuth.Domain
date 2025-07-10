@@ -25,11 +25,11 @@
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <ApplicationIcon>logo.ico</ApplicationIcon>
     </PropertyGroup>
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PropertyGroup Condition="'$(Configuration)'=='Debug'">
         <NugetPath>bin\Debug\</NugetPath>
         <DebugType>portable</DebugType>
     </PropertyGroup>
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <PropertyGroup Condition="'$(Configuration)'=='Release'">
         <NugetPath>bin\Release\</NugetPath>
         <DebugType>portable</DebugType>
     </PropertyGroup>
@@ -49,9 +49,6 @@
             <Pack>True</Pack>
             <PackagePath>\</PackagePath>
         </None>
-    </ItemGroup>
-    <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.6" />
     </ItemGroup>
     <PropertyGroup>
         <RelativeNugetPath>..\..\..\..\..\nuget</RelativeNugetPath>
